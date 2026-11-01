@@ -1,0 +1,111 @@
+====================================================================
+                    LITERATURE LANGUAGE v1.0
+====================================================================
+
+Literature Language is an esoteric programming language where 
+a program is written as a theatrical play. It features heroes, 
+scenes, hearts (variables), and a Director (the user).
+
+--------------------------------------------------------------------
+1. HEROES
+--------------------------------------------------------------------
+Heroes are declared at the beginning of the script.
+Director is a reserved word and represents the user/audience.
+
+  Heroes: Player, Counter.
+
+Rule: Exactly 2 heroes per scene. Director cannot be declared 
+as a hero (Code 001).
+
+--------------------------------------------------------------------
+2. SCENES
+--------------------------------------------------------------------
+A scene starts with [# and ends with ].
+You must specify exactly two heroes and an optional scene name.
+
+  [#Alice and Bob enter SceneName#
+  Alice: "My heart is 42. Open my heart."
+  Bob: "I have to keep quiet."]
+
+Unnamed scenes cannot be called again. Named scenes can be invoked.
+
+--------------------------------------------------------------------
+3. REPLICAS AND ACTIONS
+--------------------------------------------------------------------
+Assign number:
+  Alice: "My heart is 10."
+
+Assign string:
+  Alice: "My heart is (Hello)."
+
+Print own heart:
+  Alice: "Open my heart."
+
+Print partner's heart:
+  Alice: "Open your heart."
+
+Silence (do nothing):
+  Alice: "I have to keep quiet."
+
+Arithmetic (add 1):
+  Alice: "My heart is my heart plus 1."
+
+--------------------------------------------------------------------
+4. QUESTIONS AND BRANCHING
+--------------------------------------------------------------------
+Questions end with a "?". They require a Responder.
+
+Comparison:
+  Alice: "Is my heart bigger than 10?" <If yes I have to change my heart to (big). Else I have to change my heart to (small).>
+  Bob: <I will answer his question.>
+
+Read input (from Director or another hero):
+  Alice: "What is Director heart?" <After I get answer I will change my heart to answer.>
+  Bob: <I will answer his question.>
+
+Branches are written in angle brackets <...>.
+You can nest conditions inside branches.
+
+--------------------------------------------------------------------
+5. TRANSITIONS
+--------------------------------------------------------------------
+Direct transition (goto):
+  [#Enter SceneName#]
+
+Transition from a branch:
+  Alice: "Is my heart bigger than 0?" <If yes I will start RoomRight. Else I will start RoomLeft.>
+
+--------------------------------------------------------------------
+6. LISTENERS (OFF-STAGE)
+--------------------------------------------------------------------
+Heroes act backstage without being on stage.
+They are written inside #...#.
+
+  #Counter: "My heart is my heart plus 1."#
+
+Rules:
+- Up to 10 heroes per listener.
+- Cannot ask questions.
+- Cannot open another hero's heart.
+
+--------------------------------------------------------------------
+7. PARAMETERS (SCENES AS FUNCTIONS)
+--------------------------------------------------------------------
+Pass parameters like this:
+  SceneName(param_name:value, param2:value)
+
+Receive them inside the scene:
+  My heart is param_name.
+
+--------------------------------------------------------------------
+8. CLI COMMANDS
+--------------------------------------------------------------------
+  litl run <file>     Run a Literature program
+  litl check <file>   Check for syntax errors
+  litl cast <file>    List all heroes
+  litl scenes <file>  List all named scenes
+  litl new [name]     Create a new template file
+  litl help           Show this manual
+  litl -version       Show version
+
+====================================================================

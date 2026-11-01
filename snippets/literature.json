@@ -1,0 +1,67 @@
+{
+  "Scene": {
+    "prefix": "scene",
+    "body": [
+      "[#${1:Hero1} and ${2:Hero2} enter ${3:SceneName}#",
+      "${1:Hero1}: \"${4}\"",
+      "${2:Hero2}: \"${5}\"]"
+    ],
+    "description": "Создать новую сцену"
+  },
+  "Branch (If/Else)": {
+    "prefix": "if",
+    "body": [
+      "<If yes I have to change my heart to (${1:value}) and open my heart. Else I have to change my heart to (${2:value}) and open my heart.>"
+    ],
+    "description": "Ветвление"
+  },
+  "Ask (Input)": {
+    "prefix": "ask",
+    "body": [
+      "\"What is Director heart?\" <${1:After I get answer I will change my heart to answer and open my heart.}>"
+    ],
+    "description": "Вопрос-ввод"
+  },
+  "Listen (Off-stage)": {
+    "prefix": "listen",
+    "body": [
+      "#${1:Hero}: \"${2:My heart is my heart plus 1.}\"#"
+    ],
+    "description": "Прослушка"
+  },
+  "Enter Scene": {
+    "prefix": "enter",
+    "body": [
+      "[#Enter ${1:SceneName}#]"
+    ],
+    "description": "Прямой переход"
+  },
+  "Compare": {
+    "prefix": "compare",
+    "body": [
+      "\"Is my heart bigger than ${1:10}?\" <If yes I have to change my heart to (${2:big}) and open my heart. Else I have to change my heart to (${3:small}) and open my heart.>"
+    ],
+    "description": "Сравнение"
+  },
+  "Heroes Decl": {
+    "prefix": "heroes",
+    "body": [
+      "Heroes: ${1:Hero1}, ${2:Hero2}."
+    ],
+    "description": "Объявление героев"
+  },
+  "Quiet": {
+    "prefix": "quiet",
+    "body": [
+      "${1:Hero}: \"I have to keep quiet.\""
+    ],
+    "description": "Молчание"
+  },
+  "Plus (Arithmetic)": {
+    "prefix": "plus",
+    "body": [
+      "${1:My heart is my heart plus 1.}"
+    ],
+    "description": "Арифметика"
+  }
+}

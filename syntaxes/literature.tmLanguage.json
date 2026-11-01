@@ -1,0 +1,172 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Literature",
+  "scopeName": "source.literature",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#heroes-decl" },
+    { "include": "#director" },
+    { "include": "#enter-scene" },
+    { "include": "#scene-block" },
+    { "include": "#listener" },
+    { "include": "#branches" },
+    { "include": "#strings-double" },
+    { "include": "#strings-paren" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#hero-names" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.double-slash.literature", "match": "//.*$" }
+      ]
+    },
+    "director": {
+      "patterns": [
+        { "name": "entity.name.type.director.literature", "match": "\\bDirector\\b" }
+      ]
+    },
+    "heroes-decl": {
+      "patterns": [
+        {
+          "name": "meta.heroes-decl.literature",
+          "match": "\\b(Heroes)\\s*(:)\\s*([A-Za-z_][A-Za-z0-9_]*(?:\\s*,\\s*[A-Za-z_][A-Za-z0-9_]*)*)(\\.?)",
+          "captures": {
+            "1": { "name": "keyword.control.heroes.literature" },
+            "2": { "name": "punctuation.separator.literature" },
+            "3": { "name": "entity.name.type.hero.literature" },
+            "4": { "name": "punctuation.terminator.literature" }
+          }
+        }
+      ]
+    },
+    "enter-scene": {
+      "patterns": [
+        {
+          "name": "meta.enter-scene.literature",
+          "match": "(\\[#)\\s*(Enter)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(#\\])",
+          "captures": {
+            "1": { "name": "punctuation.section.brackets.literature" },
+            "2": { "name": "keyword.control.enter.literature" },
+            "3": { "name": "entity.name.function.scene.literature" },
+            "4": { "name": "punctuation.section.brackets.literature" }
+          }
+        }
+      ]
+    },
+    "scene-block": {
+      "patterns": [
+        {
+          "name": "meta.scene.block.literature",
+          "begin": "(\\[#)\\s*([A-Za-z_][A-Za-z0-9_]*)\\s+(and)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s+(enter)\\s+([A-Za-z_][A-Za-z0-9_]*)?\\s*(#)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.section.brackets.literature" },
+            "2": { "name": "entity.name.type.hero.literature" },
+            "3": { "name": "keyword.operator.and.literature" },
+            "4": { "name": "entity.name.type.hero.literature" },
+            "5": { "name": "keyword.control.enter.literature" },
+            "6": { "name": "entity.name.function.scene.literature" },
+            "7": { "name": "punctuation.section.brackets.literature" }
+          },
+          "end": "(\\])",
+          "endCaptures": {
+            "1": { "name": "punctuation.section.brackets.literature" }
+          },
+          "patterns": [
+            { "include": "#director" },
+            { "include": "#listener" },
+            { "include": "#branches" },
+            { "include": "#strings-double" },
+            { "include": "#strings-paren" },
+            { "include": "#numbers" },
+            { "include": "#keywords" },
+            { "include": "#hero-names" }
+          ]
+        }
+      ]
+    },
+    "listener": {
+      "patterns": [
+        {
+          "name": "meta.listener.literature",
+          "begin": "(#)\\s*([A-Za-z_][A-Za-z0-9_]*)\\s*(:)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.section.brackets.literature" },
+            "2": { "name": "entity.name.type.hero.literature" },
+            "3": { "name": "punctuation.separator.literature" }
+          },
+          "end": "(#)",
+          "endCaptures": {
+            "1": { "name": "punctuation.section.brackets.literature" }
+          },
+          "patterns": [
+            { "include": "#strings-double" },
+            { "include": "#strings-paren" },
+            { "include": "#numbers" },
+            { "include": "#keywords" }
+          ]
+        }
+      ]
+    },
+    "branches": {
+      "patterns": [
+        {
+          "name": "meta.branch.blue.literature",
+          "begin": "(<)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.section.angle.begin.blue.literature" }
+          },
+          "end": "(>)",
+          "endCaptures": {
+            "1": { "name": "punctuation.section.angle.end.blue.literature" }
+          },
+          "contentName": "meta.branch.content.blue.literature",
+          "patterns": [
+            { "include": "#strings-double" },
+            { "include": "#strings-paren" },
+            { "include": "#numbers" }
+          ]
+        }
+      ]
+    },
+    "strings-double": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.literature",
+          "begin": "\"",
+          "end": "\""
+        }
+      ]
+    },
+    "strings-paren": {
+      "patterns": [
+        {
+          "name": "string.quoted.paren.literature",
+          "begin": "\\(",
+          "end": "\\)"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        { "name": "constant.numeric.literature", "match": "\\b\\d+\\b" }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        { "name": "keyword.control.heart.literature", "match": "\\b(My|my|Your|your|heart|Heart)\\b" },
+        { "name": "keyword.control.open.literature", "match": "\\b(Open|open)\\b" },
+        { "name": "keyword.control.question.literature", "match": "\\b(Is|is|What|what)\\b" },
+        { "name": "keyword.operator.compare.literature", "match": "\\b(bigger|smaller|than|plus)\\b" },
+        { "name": "keyword.operator.and.literature", "match": "\\b(and)\\b" },
+        { "name": "keyword.control.answer.literature", "match": "\\b(answer)\\b" }
+      ]
+    },
+    "hero-names": {
+      "patterns": [
+        { "name": "entity.name.type.hero.literature", "match": "\\b[A-Z][A-Za-z0-9_]*\\b" }
+      ]
+    }
+  }
+}

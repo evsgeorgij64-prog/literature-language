@@ -1,0 +1,56 @@
+{
+  "name": "literature-language",
+  "displayName": "Literature Language",
+  "description": "Syntax highlighting and LSP for .litl files",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "icon": "icon.png",
+  "main": "./client/extension.js",
+  "activationEvents": [
+    "onLanguage:literature"
+  ],
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evsgeorgij64-prog/literature-language.git"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "literature",
+        "aliases": [
+          "Literature",
+          "literature"
+        ],
+        "extensions": [
+          ".litl"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icon.png",
+          "dark": "./icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "literature",
+        "scopeName": "source.literature",
+        "path": "./syntaxes/literature.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "literature",
+        "path": "./snippets/literature.json"
+      }
+    ]
+  }
+}
