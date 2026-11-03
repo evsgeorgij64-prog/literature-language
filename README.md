@@ -6,10 +6,10 @@ Official extension for the **Literature Language** programming language.
 
 Literature Language is an esoteric programming language where a program is written as a theatrical play. It features heroes (variables), scenes, and a Director (the user).
 
-This extension turns VS Code into a full-fledged development environment for Literature Language:
+This extension turns VS Code into a development environment for Literature Language:
 - **Syntax highlighting** (TextMate).
 - **Real-time syntax checking** (LSP server in Python, packaged as an `.exe`).
-- **Run programs with F5 or Ctrl+Shift+L**.
+- **Run programs with Ctrl+Shift+B**.
 - **Snippets** for quickly writing scenes and replicas.
 - **Standalone** — no Python installation is required for the extension to work.
 
@@ -17,7 +17,7 @@ This extension turns VS Code into a full-fledged development environment for Lit
 
 1. Download the `literature-language-0.0.1.vsix` file.
 2. Open VS Code and go to the Extensions panel (`Ctrl+Shift+X`).
-3. Click the three dots `...` in the top right corner and select **Install from VSIX...**
+3. Click the three dots `...` in the top right corner and select **Install from VSIX...**.
 4. Select the downloaded file.
 
 ## Features
@@ -29,8 +29,8 @@ Files with the `.litl` extension are automatically recognized as Literature. Key
 The extension runs a background server (`litl-server.exe`) that checks your code as you type. If you make a syntax error, it will be immediately underlined in red, and a description will appear in the "Problems" panel (`Ctrl+Shift+M`).
 
 ### 3. Running Programs
-- **F5** or **Ctrl+Shift+L** — runs the currently open `.litl` file.
-- You can also use the Command Palette: `Literature: Run File`.
+- **Ctrl+Shift+B** — runs the currently open `.litl` file (after `litl init` has been executed).
+- Alternatively, run `litl run <file>` in the terminal.
 
 ### 4. Snippets
 Abbreviations work in `.litl` files. Type `scene` and press `Tab` to create a scene skeleton. Available: `scene`, `heroes`, `ask`, `if`, `compare`, `enter`, `listen`, `quiet`, `plus`.
@@ -44,6 +44,7 @@ The extension comes with a CLI tool `litl.exe` (located in the `core/dist` folde
 - `litl cast <file>` — list heroes.
 - `litl scenes <file>` — list scenes.
 - `litl new [name]` — create a new template file.
+- `litl -init` — initialize VS Code workspace (creates `.vscode/settings.json` and `.vscode/tasks.json`).
 - `litl help` — show language help.
 - `litl -version` — show version.
 
